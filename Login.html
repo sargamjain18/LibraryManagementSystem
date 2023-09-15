@@ -1,144 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title> 
-    <img src="frame1.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login</title>
     
-
+    <!-- Add Bootstrap CSS CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Custom CSS for styling -->
     <style>
-      html {
-        height: 100%;
-      }
-
-      body {
-        height: 100%;
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-        background-color: #3a3a3a;
-      }
-
-      #main-holder {
-        width: 50%;
-        height: 70%;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-        background-color: white;
-        border-radius: 7px;
-        box-shadow: 0px 0px 5px 2px black;
-      }
-
-      #login-error-msg-holder {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-      }
-
-      #login-error-msg {
-        width: 23%;
-        text-align: center;
-        margin: 0;
-        padding: 5px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #8a0000;
-        border: 1px solid #8a0000;
-        background-color: #e58f8f;
-        opacity: 0;
-      }
-
-      #error-msg-second-line {
-        display: block;
-      }
-
-      #login-form {
-        align-self: flex-start;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-      }
-
-      .login-form-field::placeholder {
-        color: #3a3a3a;
-      }
-
-      .login-form-field {
-        border: none;
-        border-bottom: 1px solid #3a3a3a;
-        margin-bottom: 10px;
-        border-radius: 3px;
-        outline: none;
-        padding: 0px 0px 5px 5px;
-      }
-
-      #login-form-submit {
-        width: 100%;
-        padding: 7px;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        font-weight: bold;
-        background-color: #3a3a3a;
-        cursor: pointer;
-        outline: none;
-      }
-    </style>
-
-    <script>
-      const loginForm = document.getElementById("login-form");
-      const loginButton = document.getElementById("login-form-submit");
-      const loginErrorMsg = document.getElementById("login-error-msg");
-
-      loginButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        const username = loginForm.username.value;
-        const password = loginForm.password.value;
-
-        if (username === "user" && password === "web_dev") {
-          alert("You have successfully logged in.");
-          location.reload();
-        } else {
-          loginErrorMsg.style.opacity = 1;
+        body {
+           background-color:rgb(228, 227, 227);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: Arial, sans-serif;
         }
-      });
-    </script>
-  </head>
 
-  <body>
-    <main id="main-holder">
-      <h1 id="login-header">Login</h1>
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
 
-      <div id="login-error-msg-holder">
-        <p id="login-error-msg">
-          Invalid username
-          <span id="error-msg-second-line">and/or password</span>
-        </p>
-      </div>
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-      <form id="login-form">
-        <input
-          type="text"
-          name="username"
-          id="username-field"
-          class="login-form-field"
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          name="password"
-          id="password-field"
-          class="login-form-field"
-          placeholder="Password"
-        />
-        <input type="submit" value="Login" id="login-form-submit" />
-      </form>
-    </main>
-  </body>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 10px;
+            background-color: #2c2f32;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 18px;
+          
+            /* cursor: pointer; */
+        }
+
+        /* .btn-login:hover {
+            background-color: #0056b3; */
+        
+
+        .forgot-password {
+            text-align: center;
+        }
+
+        .create-account {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-container">
+                    <h2>Login</h2>
+                    <form action="your_login_process.php" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-login">Login</button>
+                    </form>
+                    <div class="forgot-password">
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                    <div class="create-account">
+                        Don't have an account? <a href="#">Create one</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery CDN links (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
